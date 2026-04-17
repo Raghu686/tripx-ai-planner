@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-darkBg: #050510;
+  --color-goldAccent: #d4af37;
+  --color-primary: #06b6d4;  /* Cyan-500 */
+  --font-sans: 'Inter', sans-serif;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-darkBg);
+    color: #f3f4f6;
+    font-family: var(--font-sans);
+    margin: 0;
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  .glow-text {
+    text-shadow: 0 0 15px rgba(34, 211, 238, 0.4), 0 0 30px rgba(34, 211, 238, 0.2);
+  }
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)];
+  }
+}
+
+/* Scroll Map to Modern Map transition utilities */
+clip-path-circle {
+  clip-path: circle(0% at 50% 50%);
+  transition: clip-path 1.5s ease-out;
+}
+.map-revealed {
+  clip-path: circle(150% at 50% 50%);
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-ticket, #printable-ticket * {
+    visibility: visible;
+  }
+  #printable-ticket {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    transform: none !important;
+    background: none !important;
+    box-shadow: none !important;
+  }
+  /* Force background graphics to print in modern browsers */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
