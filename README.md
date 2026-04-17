@@ -56,3 +56,5 @@ TripX AI Planner is a modern full-stack travel booking web application designed 
 ```bash
 npm install
 npm run dev
+
+Author - Developed By Raghu
