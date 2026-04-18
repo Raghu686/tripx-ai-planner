@@ -1,3 +1,4 @@
+y
 import React from 'react';
 import { AlertTriangle, RefreshCcw } from 'lucide-react';
 
